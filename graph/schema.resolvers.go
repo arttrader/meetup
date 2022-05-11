@@ -11,19 +11,31 @@ import (
 	"github.com/arttrader/meetup/graph/model"
 )
 
-func (r *mutationResolver) CreateTodo(ctx context.Context, input model.NewTodo) (*model.Todo, error) {
+func (r *meetupResolver) ID(ctx context.Context, obj *model.Meetup) (string, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *queryResolver) Todos(ctx context.Context) ([]*model.Todo, error) {
+func (r *meetupResolver) Name(ctx context.Context, obj *model.Meetup) (string, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
-// Mutation returns generated.MutationResolver implementation.
-func (r *Resolver) Mutation() generated.MutationResolver { return &mutationResolver{r} }
+func (r *meetupResolver) Description(ctx context.Context, obj *model.Meetup) (string, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+
+func (r *meetupResolver) User(ctx context.Context, obj *model.Meetup) (*model.User, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+
+func (r *queryResolver) Meetups(ctx context.Context) ([]*model.Meetup, error) {
+	panic(fmt.Errorf("not implemented"))
+}
+
+// Meetup returns generated.MeetupResolver implementation.
+func (r *Resolver) Meetup() generated.MeetupResolver { return &meetupResolver{r} }
 
 // Query returns generated.QueryResolver implementation.
 func (r *Resolver) Query() generated.QueryResolver { return &queryResolver{r} }
 
-type mutationResolver struct{ *Resolver }
+type meetupResolver struct{ *Resolver }
 type queryResolver struct{ *Resolver }
